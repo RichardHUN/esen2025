@@ -1,0 +1,1 @@
+create book --author Dosztojevszki --title Ordogok --publisher USSR --price 50
