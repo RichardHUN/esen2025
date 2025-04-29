@@ -11,3 +11,20 @@
 1745307034283:list books
 1745307286017:create book --author Dosztojevszki --title Ordogok --publisher USSR --price 50
 1745307288363:list books
+1745907485606:list book
+1745907507435:listBooks
+1745907530279:list books
+1745907555356:color 07
+1745907556626:exit
+1745907612404:list books
+1745909332069:update book --id
+1745909344003:update book --id 3 --publisher En
+1745909348635:list books
+1745909360087:delete book --id 4
+1745909880306:list books
+1745909885888:delete book --id 5
+1745909888393:list books
+1745910911329:list bookstores
+1745911447545:delete bookstore --id 5
+1745911448564:list bookstores
+1745911481637:color 07
