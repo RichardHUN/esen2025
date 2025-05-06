@@ -6,7 +6,11 @@ import com.esen.bookstore.repository.BookstoreRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor
@@ -30,6 +34,31 @@ public class BookstoreService {
     public void deleteBookstore(Long id){
         var bookstore = bookstoreRepository.getReferenceById(id);
         bookstoreRepository.delete(bookstore);
+    }
+
+    public void save(Bookstore bookstore){
+        bookstoreRepository.save(bookstore);
+    }
+
+    public Bookstore update(long id,
+                    String location,
+                    Double priceModifier,
+                    Double moneyInCashRegister) {
+        if( Stream.of(location, priceModifier, moneyInCashRegister).allMatch(Objects::isNull) ){
+            throw new IllegalArgumentException("At least one input is required");
+        }
+
+        if(!bookstoreRepository.existsById(id)){
+            throw new IllegalArgumentException("Cannot find bookstore with id " + id);
+        }
+
+        var bookstore = bookstoreRepository.findById(id).get();
+
+        if(location != null) bookstore.setLocation(location);
+        if(priceModifier != null) bookstore.setPriceModifier(priceModifier);
+        if(moneyInCashRegister != null) bookstore.setMoneyInCashRegister(moneyInCashRegister);
+
+        return bookstoreRepository.save(bookstore);
     }
 
 }

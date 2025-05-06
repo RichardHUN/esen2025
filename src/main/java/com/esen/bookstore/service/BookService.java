@@ -1,13 +1,17 @@
 package com.esen.bookstore.service;
 
 import com.esen.bookstore.model.Book;
+import com.esen.bookstore.model.Bookstore;
 import com.esen.bookstore.repository.BookRepository;
-import com.esen.bookstore.repository.BookstoreRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
@@ -53,6 +57,43 @@ public class BookService {
         if (publisher != null)book.setPublisher(publisher);
 
         return bookRepository.save(book);
+    }
+
+    public Map<String, Double> findPrices(long id){
+        if(!bookRepository.existsById(id)){
+            throw new IllegalArgumentException("Cannot find book with id " + id);
+        }
+
+        Double bookPrice = bookRepository.findById(id).get().getPrice();
+        return bookstoreService.findAll()
+                .stream()
+                .map(bookstore -> Pair.of(bookstore.getLocation(), bookstore.getPriceModifier()))
+                .collect(Collectors.toMap(Pair::getFirst, p -> p.getSecond() * bookPrice));
+
+        /*Double priceOfBook = bookRepository.findById(id).get().getPrice();
+        List<Bookstore> bookstores = bookstoreService.findAll();
+        Map<String, Double> pricesByBookstores = new HashMap<>();
+
+        for (Bookstore bookstore: bookstores){
+            pricesByBookstores.put(bookstore.getLocation(), bookstore.getPriceModifier() * priceOfBook);
+        }
+        return pricesByBookstores;*/
+    }
+
+    public List<Book> findByPublisherOrAuthorOrTitle(String publisher, String author, String title){
+        return bookRepository.findAll()
+                .stream()
+                .filter(book -> {
+                    if(title != null){
+                        return Objects.equals(book.getTitle(), title);
+                    }if (publisher != null){
+                        return Objects.equals(book.getPublisher(), publisher);
+                    }if (author != null){
+                        return Objects.equals(author, book.getAuthor());
+                    }
+                    return true;
+                })
+                .toList();
     }
 
 }

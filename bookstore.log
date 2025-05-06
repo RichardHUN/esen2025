@@ -28,3 +28,38 @@
 1745911447545:delete bookstore --id 5
 1745911448564:list bookstores
 1745911481637:color 07
+1746512021618:list books
+1746512702481:create bookstore --location Szlovakia --priceModifier 0.9 --moneyInCashRegister 10000
+1746512706386:list bookstores
+1746512760570:exit
+1746513255400:help
+1746513267969:list booksore
+1746513270204:list bookstore
+1746513279984:list bookstores
+1746513313017:update bookstore --id 3 --priceModifier 0.75 --moneyInCashRegister 20000
+1746513316748:list bookstores
+1746513338698:update bookstore --id 5 --moneyInCashRegister 20000
+1746513340230:list bookstores
+1746514907740:help
+1746514914813:list books
+1746514922278:find prices 1
+1746515211700:help
+1746515214411:find prices 1
+1746516050132:help
+1746516062017:find books filtered
+1746516067735:list books
+1746516078373:find books filtered --title Tuskevar
+1746516102977:exit
+1746516155553:hlep
+1746516156312:help
+1746516160004:list books
+1746516163605:filtered books
+1746516173679:filtered books --title A Pal utcai fiuk
+1746516178166:filtered books --title "A Pal utcai fiuk"
+1746516227066:filtered books --title "A kosz�vu ember fiai"
+1746516294540:help
+1746516313143:filtered books --title "Az aranyember"
+1746516419609:help
+1746516421399:list books
+1746516441818:filtered books --author "Gardonyi Geza"
+1746516505962:filtered books --publisher Magveto

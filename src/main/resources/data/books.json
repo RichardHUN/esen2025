@@ -1,32 +1,32 @@
 [
   {
     "title": "Az aranyember",
-    "author": "Jókai Mór",
-    "publisher": "Magyar Könyvklub",
+    "author": "Jokai Mor",
+    "publisher": "Magyar Konyvklub",
     "price": 2500
   },
   {
-    "title": "A Pál utcai fiúk",
-    "author": "Molnár Ferenc",
-    "publisher": "Magvető",
+    "title": "A Pal utcai fiuk",
+    "author": "Molnar Ferenc",
+    "publisher": "Magveto",
     "price": 1800
   },
   {
     "title": "Egri csillagok",
-    "author": "Gárdonyi Géza",
-    "publisher": "Magyar Könyvklub",
+    "author": "Gardonyi Geza",
+    "publisher": "Magyar Konyvklub",
     "price": 2200
   },
   {
-    "title": "Tüskevár",
-    "author": "Fekete István",
-    "publisher": "Szépirodalmi Könyvkiadó",
+    "title": "Tuskevar",
+    "author": "Fekete Istvan",
+    "publisher": "Szepirodalmi Konyvkiado",
     "price": 2100
   },
   {
-    "title": "A kőszívű ember fiai",
-    "author": "Jókai Mór",
-    "publisher": "Magvető",
+    "title": "A koszivu ember fiai",
+    "author": "Jokai Mor",
+    "publisher": "Magveto",
     "price": 2400
   }
 ]
